@@ -8,6 +8,7 @@ import Bird from '../models/Bird'
 import Plane from '../models/Plane'
 import HomeInfo from '../components/HomeInfo'
 
+
 export const Home = () => {
 
   const [currentStage, setCurrentStage] = useState(1);
@@ -62,7 +63,7 @@ export const Home = () => {
           <Sky isRotating={isRotating}></Sky>
           <Island position={islandPosition} scale={isladScale} rotation={islandRotation} isRotating={isRotating} setIsRotating={setIsRotating} setCurrentStage={setCurrentStage}
           ></Island>
-          <Plane isRotating={isRotating} planeScale={planeScale} planePosition={planePosition} rotation={[0, 20, 0]}></Plane>
+          <Plane isRotating={isRotating} scalecale={planeScale} position={planePosition} rotation={[0, 20, 0]}></Plane>
         </Suspense>
       </Canvas>
     </section>

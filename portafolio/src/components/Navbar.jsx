@@ -11,7 +11,7 @@ export const Navbar = () => {
                 <NavLink to="/about" className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black'}>
                     About
                 </NavLink>
-                <NavLink to="/project" className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black'}>
+                <NavLink to="/projects" className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black'}>
                     Projects
                 </NavLink>
                 <NavLink to="/contact" className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black'}>
