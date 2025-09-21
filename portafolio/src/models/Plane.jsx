@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRef } from 'react'
-import planeScene from '../assets/3d/plane.glb'
+import planeScene from '../assets/3d/radiant_p_bc1.glb'
 import { useAnimations, useGLTF } from '@react-three/drei'
 
 

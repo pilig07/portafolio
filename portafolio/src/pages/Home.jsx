@@ -19,10 +19,10 @@ export const Home = () => {
     let rotation = [0.1, 4.7, 0];
 
     if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
+      screenScale = [4, 4, 4];
 
     } else {
-      screenScale = [1, 1, 1];
+      screenScale = [6, 6, 6];
 
     }
     return [screenScale, screenPosition, rotation];
@@ -31,12 +31,12 @@ export const Home = () => {
     let screenScale, screenPosition
 
     if (window.innerWidth < 768) {
-      screenScale = [1.5, 1.5, 1.5];
+      screenScale = [0.06, 0.06, 0.06];
       screenPosition = [0, -1.5, 0];
 
     } else {
-      screenScale = [3, 3, 3];
-      screenPosition = [0, -4, -4];
+      screenScale = [0.2, 0.2, 0.2];
+      screenPosition = [0, -5, -5];
 
     }
     return [screenScale, screenPosition];
@@ -55,15 +55,14 @@ export const Home = () => {
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader></Loader>}>
-          <directionalLight position={[5, 1, 1]} intensity={2}></directionalLight>
+          <directionalLight position={[3, 1, 1]} intensity={2}></directionalLight>
           <ambientLight intensity={0.5}></ambientLight>
           <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1}></hemisphereLight>
-          <Bird></Bird>
-
+          {/* <Bird></Bird> */}
           <Sky isRotating={isRotating}></Sky>
           <Island position={islandPosition} scale={isladScale} rotation={islandRotation} isRotating={isRotating} setIsRotating={setIsRotating} setCurrentStage={setCurrentStage}
           ></Island>
-          <Plane isRotating={isRotating} scalecale={planeScale} position={planePosition} rotation={[0, 20, 0]}></Plane>
+          <Plane isRotating={isRotating} scale={planeScale} position={planePosition} rotation={[0, 20, 0]}></Plane>
         </Suspense>
       </Canvas>
     </section>
