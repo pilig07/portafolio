@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home, About, Projects, Contact } from './pages';
+import ProjectDetail from './pages/ProjectDetail';
 
 const Apps = () => {
     return (
@@ -12,6 +13,8 @@ const Apps = () => {
                     <Route path='/about' element={<About></About>}></Route>
                     <Route path='/projects' element={<Projects></Projects>}></Route>
                     <Route path='/contact' element={<Contact></Contact>}></Route>
+
+                    <Route path='/project/:projectId' element={<ProjectDetail />} />
                 </Routes>
             </Router>
 

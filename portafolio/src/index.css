@@ -20,7 +20,18 @@ body:has(.card[data-color="blue"]:hover) {
 body:has(.card[data-color="green"]:hover) {
   background-color: rgb(var(--green-rgb) / 25%);
 }
+ .swiper-button-next,
+  .swiper-button-prev {
+    color: #9b5de5; /* morado */
+    width: 30px;
+    height: 30px;
+  }
 
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 18px;
+  }
+  
 @layer utilities {
   .max-container {
     @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
