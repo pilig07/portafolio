@@ -18,7 +18,7 @@ export const Navbar = () => {
                             isActive
                                 ? "text-violet-500"
                                 : isHome
-                                ? "text-white"
+                                ? "text-black"
                                 : "text-black"
                         }
                     >

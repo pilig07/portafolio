@@ -7,7 +7,9 @@ import Sky from '../models/Sky'
 import Bird from '../models/Bird'
 import Plane from '../models/Plane'
 import HomeInfo from '../components/HomeInfo'
-
+import { motion } from 'framer-motion'
+import ComputersCanvas from '../canvas/Computers'
+import { styles } from '../styles'
 
 export const Home = () => {
 
@@ -47,25 +49,50 @@ export const Home = () => {
 
 
   return (
-    <section className='w-full h-screen relative'>
-      <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
-        {currentStage && <HomeInfo currentStage={currentStage}></HomeInfo>}
-      </div>
-      <Canvas className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-        camera={{ near: 0.1, far: 1000 }}
+    <section className={`relative w-full h-screen mx-auto `}>
+      <div
+        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
       >
-        <Suspense fallback={<Loader></Loader>}>
-          <directionalLight position={[3, 1, 1]} intensity={2}></directionalLight>
-          <ambientLight intensity={0.5}></ambientLight>
-          <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1}></hemisphereLight>
-          {/* <Bird></Bird> */}
-          <Sky isRotating={isRotating}></Sky>
-          <Island position={islandPosition} scale={isladScale} rotation={islandRotation} isRotating={isRotating} setIsRotating={setIsRotating} setCurrentStage={setCurrentStage}
-          ></Island>
-          <Plane isRotating={isRotating} scale={planeScale} position={planePosition} rotation={[0, 20, 0]}></Plane>
-        </Suspense>
-      </Canvas>
+        <div className='flex flex-col justify-center items-center mt-5'>
+          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
+          <div className='w-1 sm:h-80 h-40 violet-gradient' />
+        </div>
+
+        <div>
+          <h1 className={`${styles.heroHeadText} text-black`}>
+            Hi, I'm <span className='text-[#915EFF]'>Pilar</span>
+          </h1>
+          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+            A Software Developer from Mexico 🌮
+          </p>
+        </div>
+      </div>
+
+      <ComputersCanvas />
+
+      
     </section>
+    // <section className='w-full h-screen relative mx-auto violet-gradient'>
+    //   <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+    //     {currentStage && <HomeInfo currentStage={currentStage}></HomeInfo>}
+    //   </div>
+    //   <div className='flex flex-col justify-center items-center mt-5'>
+    //     <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
+    //     <div className='w-1 sm:h-80 h-40 violet-gradient' />
+    //   </div>
+
+    //   <div>
+    //     <h1 className={`${styles.heroHeadText} text-white`}>
+    //       Hi, I'm <span className='text-[#915EFF]'>Adrian</span>
+    //     </h1>
+    //     <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+    //       I develop 3D visuals, user <br className='sm:block hidden' />
+    //       interfaces and web applications
+    //     </p>
+    //   </div>
+
+
+    // </section>
   )
 }
 
