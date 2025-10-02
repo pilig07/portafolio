@@ -7,7 +7,7 @@ const InfoBox = ({ text, link, btnText }) => (
         <p className='font-medium sm:text-xl text-center'> {text}</p>
         <Link to={link} className='neo-brutalism-white neo-btn'>
             {btnText}
-            <img src={arrow} className='w-4 h-4 object-contain' />
+            <img src={arrow} className='w-4 h-4 object-contain -[#915EFF]' />
         </Link>
 
     </div>
@@ -15,7 +15,11 @@ const InfoBox = ({ text, link, btnText }) => (
 
 const renderContent = {
     1: (
-        <h1 className='sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5'>Hi, I am <span className='font-semibold'>Pilar</span>👩‍💻 <br /> A Software Developer from Mexico 🌮 </h1>
+        <div className='sm:text-xl sm:leading-snug text-center py-4 px-8 text-white mx-5 info-box'>
+            <span className='font-semibold'>Welcome to my portfolio!</span> 👩‍💻<br />
+            Dive in, explore my projects, and see ideas come to life!
+        </div>
+
     ),
     2: (
         <InfoBox text="💻 Worked with multiple companies delivering real-world software solutions." link="/about" btnText="Learn more"></InfoBox>

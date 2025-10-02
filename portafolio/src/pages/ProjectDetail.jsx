@@ -24,7 +24,7 @@ const ProjectDetail = () => {
   const isExternal = !!project.link;
 
   return (
-    <section className='max-container mt-10'>
+    <section className='max-container '>
       {/* Nombre del proyecto */}
       <h1 className='text-3xl font-poppins blue-gradient_text mb-4 font-semibold drop-shadow'>{project.name}</h1>
 
@@ -63,7 +63,7 @@ const ProjectDetail = () => {
         </section>
       )}
 
-
+<br />
       <div className="flex flex-wrap gap-2 mb-6">
         {project.tech?.map((tech, idx) => (
           <span key={idx} className="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm">

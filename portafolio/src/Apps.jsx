@@ -5,7 +5,7 @@ import ProjectDetail from './pages/ProjectDetail';
 
 const Apps = () => {
     return (
-        <main className='bg-slate-300/20 h-full'>
+          <main className='bg-gradient-to-b from-gray-100 via-gray-200 to-gray-300 min-h-screen'>
             <Router>
                 <Navbar></Navbar>
                 <Routes>

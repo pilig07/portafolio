@@ -38,6 +38,22 @@ import chq3 from "../assets/projects/chequera/img3.png";
 import chq4 from "../assets/projects/chequera/img4.png";
 import chq5 from "../assets/projects/chequera/img5.png";
 
+import rep1 from "../assets/projects/repairapp/img1.jpg";
+import rep2 from "../assets/projects/repairapp/img2.jpg";
+import rep3 from "../assets/projects/repairapp/img3.jpg";
+import rep4 from "../assets/projects/repairapp/img4.jpg";
+import rep5 from "../assets/projects/repairapp/img5.jpg";
+import rep6 from "../assets/projects/repairapp/img6.jpg";
+import rep7 from "../assets/projects/repairapp/img7.jpg";
+import rep8 from "../assets/projects/repairapp/img8.jpg";
+
+import post1 from "../assets/projects/post/img1.png";
+import post2 from "../assets/projects/post/img2.png";
+import post3 from "../assets/projects/post/img3.png";
+import post4 from "../assets/projects/post/img4.png";
+import post5 from "../assets/projects/post/img5.png";
+import post6 from "../assets/projects/post/img6.png";
+
 import {
   car,
   contact,
@@ -352,7 +368,7 @@ export const projects = [
     name: "Chequera System",
     description:
       "Web application built with .NET and MySQL for automating check processing. Supported Excel file uploads, data transformation, and automated PDF generation for check printing. Included user management and role-based access control to streamline operations for the company.",
-    // images: [img1, img2, img3],
+
     images: [chq1, chq2, chq3, chq4, chq5],
     moreDetails: [
       "Web application built with .NET and C# for automating check processing.",
@@ -380,16 +396,59 @@ export const projects = [
     name: "Repair Center App",
     description:
       "Cross-platform mobile app developed in Flutter for Android and iOS, designed for internal company use. Integrated with APIs to deliver manuals, videos, and step-by-step instructions tailored to the tools or machines under repair. Features include user login, dynamic content selection, and offline availability.",
-    // images: [img1, img2, img3],
+    images: [rep1, rep2, rep3, rep5, rep6, rep4, rep7, rep8],
+    moreDetails: [
+      "Cross-platform mobile app for Android and iOS developed with Flutter.",
+      "Integrated with company APIs to fetch manuals, videos, and step-by-step instructions for repair tasks.",
+      "Supports offline access to critical content for field technicians.",
+      "Includes PDF and video visualization directly in the app for seamless guidance.",
+      "Backend and desktop frontend built to connect and synchronize with the mobile app.",
+      "Designed according to company-provided UX/UI guidelines for consistency and usability.",
+      "User authentication and role-based access control implemented to ensure secure operations.",
+      "Improves repair efficiency by centralizing instructions and reducing manual errors.",
+    ],
+    tech: [
+      "Flutter",
+      "Dart",
+      "C#",
+      ".NET",
+      "REST APIs",
+      "PDF Viewer",
+      "Video Player",
+      "SQLite",
+      "Cross-platform Design",
+    ],
     internalLink: "/project/repaircenter-app",
   },
+
   {
     iconUrl: summiz,
     theme: "btn-back-yellow",
     name: "PostCosecha System",
     description:
-      "Full-stack web system developed with Vue.js (frontend) and .NET (backend) using PostgreSQL. Designed for a flower company to manage inventories, orders, and workflows with four types of user roles. Features include order creation, release and tracking, inventory control, API integrations, and a responsive user-friendly interface tailored to company processes.",
+      "Full-stack web system developed with Vue.js (frontend) and .NET (backend) using PostgreSQL. Designed for a flower company to manage inventories, orders, and workflows in real-time. Features include inventory tracking, order management, gaveta control, user roles, logistics, and printing of labels for the flower company.",
     // images: [img1, img2, img3],
+    moreDetails: [
+      "Real-time tracking of inventory, orders, gavetas, and logistics.",
+      "Full-stack development: Vue.js frontend and .NET backend with PostgreSQL.",
+      "Integration with company APIs (PIS) for synchronized data.",
+      "User management with multiple roles and permissions.",
+      "Supports printing of labels for flower packages directly from the system.",
+      "Dashboard and reports to monitor operations and improve efficiency.",
+      "Responsive and user-friendly interface tailored to company workflows.",
+    ],
+      images: [post1, post2, post4, post3, post5, post6],
+    tech: [
+      "Vue.js",
+      "JavaScript",
+      "TypeScript",
+      ".NET",
+      "C#",
+      "PostgreSQL",
+      "REST APIs",
+      "Real-time Tracking",
+      "Label Printing",
+    ],
     internalLink: "/project/postcosecha",
   },
   {
@@ -399,7 +458,7 @@ export const projects = [
     description:
       "Interactive trivia web application developed with JavaScript, HTML, and CSS for a private event. Participants could join via QR code, answer timed questions, and receive automatic scoring. Results were emailed to the host at the end, providing a gamified experience similar to Kahoot.",
     // images: [img1, img2, img3],
-    internalLink: "/project/wowtrivia",
+    // internalLink: "/project/wowtrivia",
   },
   {
     iconUrl: shopify,
@@ -408,7 +467,7 @@ export const projects = [
     description:
       "Web application developed with PHP for a newspaper project. Users in public spaces could take photos using selectable frames, and at the end, the photos were automatically sent to their chosen email address. The system provided an interactive and shareable experience for event participants.",
     // images: [img1, img2, img3],
-    internalLink: "/project/photoframe",
+    //internalLink: "/project/photoframe",
   },
   {
     iconUrl: motion,
@@ -417,7 +476,7 @@ export const projects = [
     description:
       "Government web portal developed with CodeIgniter, providing up-to-date information on volcanic eruptions and regional events. Built according to the client's design specifications, the site features news updates, state-specific information, and a user-friendly interface for citizens and officials.",
     // images: [img1, img2, img3],
-    internalLink: "/project/volcano",
+    // internalLink: "/project/volcano",
   },
   {
     iconUrl: firebase, // reemplaza con la ruta de tu ícono

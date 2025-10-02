@@ -1,20 +1,37 @@
-import React, { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useEffect, useState, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../components/Loader";
 
-const Computers = ({ isMobile }) => {
+const Computers = ({ isMobile, setCurrentStage }) => {
   const computer = useGLTF("/models/programmer.glb");
+  const meshRef = useRef();
+
+  useFrame(({ camera }) => {
+    if (meshRef.current) {
+      // Calcula la rotación relativa de la cámara alrededor del modelo en Y
+      const angle = Math.atan2(
+        camera.position.x - meshRef.current.position.x,
+        camera.position.z - meshRef.current.position.z
+      );
+
+      // Convierte a positivo y ajusta rango 0-4 (ejemplo 4 stages)
+      let normalized = angle >= 0 ? angle : angle + 2 * Math.PI;
+      normalized = (normalized / (2 * Math.PI)) * 4;
+
+      // Cambia el stage según el sector
+      if (normalized >= 0 && normalized < 1) setCurrentStage(1);
+      else if (normalized >= 1 && normalized < 2) setCurrentStage(2);
+      else if (normalized >= 2 && normalized < 3) setCurrentStage(3);
+      else setCurrentStage(4);
+    }
+  });
 
   return (
-    <mesh>
-      <hemisphereLight intensity={2}  />
-     <directionalLight
-        position={[5, 10, 5]}
-        intensity={1.2}
-        castShadow
-      />
+    <mesh ref={meshRef}>
+      <hemisphereLight intensity={2} />
+      <directionalLight position={[5, 10, 5]} intensity={1.2} castShadow />
       <spotLight
         position={[0, 10, 10]}
         angle={0.3}
@@ -25,16 +42,15 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1.5} position={[0, 5, 5]} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 1.2 : 1.25}   //  hazlo más grande
-        position={[0, -1.5, 0]}          //  baja un poco
-        rotation={[0, Math.PI / 2, 0]} // gira de frente
+        scale={isMobile ? 1.2 : 1.25}
+        position={[-15, -2.3, 0]}
+        rotation={[0, Math.PI / 2, 0]}
       />
-
     </mesh>
   );
 };
 
-const ComputersCanvas = () => {
+const ComputersCanvas = ({setCurrentStage}) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -60,10 +76,10 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameloop='demand'
+      frameloop="demand"
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 30 }}
+      camera={{ position: [5, 3, 10], fov: 30 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
@@ -71,12 +87,10 @@ const ComputersCanvas = () => {
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
-          target={[0, 0.2, 0]} // 👈 centrado al nivel del modelo
+          target={[0, 0.2, 0]}
         />
-
-        <Computers isMobile={isMobile} />
+        <Computers isMobile={isMobile} setCurrentStage={setCurrentStage} />
       </Suspense>
-
       <Preload all />
     </Canvas>
   );

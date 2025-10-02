@@ -61,6 +61,22 @@ export const Projects = () => {
           })}
         </div>
       </div>
+      <div className='flex flex-col items-center gap-4 mt-8'>
+        <p className="italic text-gray-400 text-center text-sm max-w-2xl mx-auto">
+          I have worked on numerous projects across web and mobile platforms. Many of them are confidential and cannot be displayed in detail due to privacy agreements with clients.
+        </p>
+
+        <p className="italic text-gray-400 text-center text-sm max-w-2xl mx-auto">
+          Some of the projects include platforms similar to Uber Eats, delivery management systems, inventory and logistics management solutions, and other internal business tools.
+        </p>
+
+        <p className="italic text-gray-400 text-center text-sm max-w-2xl mx-auto">
+          All sensitive information has been censored for demonstration purposes.
+        </p>
+      </div>
+
+      <hr className='my-8 border-gray-300 w-full' />
+
       <hr className='border-slate-200'></hr>
       <CTA></CTA>
     </section>

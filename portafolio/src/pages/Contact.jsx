@@ -62,39 +62,73 @@ export const Contact = () => {
   };
 
   return (
-    <section className='relative flex lg:flex-row felx-col max-container h-[100vh]'>
-      {alert.show && <Alert {...alert}></Alert>}
-      <div className='flex-1 min-w-[50%] flex flex-col'>
-        <h1 className='head-text'>Get in Touch!</h1>
-        <form className='w-full flex flex-col gap-7 mt-10' onSubmit={handleSubmit}>
-          <label className='text-black-500 font-semibold'>Name</label>
-          <input type='text' name='name' required className='input' placeholder='John Doe' value={form.name} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur}></input>
-          <label className='text-black-500 font-semibold'>Email</label>
-          <input type='email' name='email' required className='input' placeholder='john@gmail.com' value={form.email} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur}></input>
-          <label className='text-black-500 font-semibold'>Your Message</label>
-          <textarea required name='message' className='textarea' rows={4} placeholder='Let me know how I can help you!' onChange={handleChange} value={form.message} onFocus={handleFocus} onBlur={handleBlur}></textarea>
+    <section className='relative flex lg:flex-row flex-col max-container min-h-screen'>
 
-          <button type='submit' className='btn' onFocus={handleFocus} onBlur={handleBlur}> {isLoading ? 'Sending...' : 'Send Message'}</button>
+      {alert.show && <Alert {...alert} />}
+
+      {/* Formulario */}
+      <div className="flex-1 min-w-[50%] flex flex-col px-4">
+        <h1 className="head-text">Get in Touch!</h1>
+        <form className="w-full flex flex-col gap-7 mt-10" onSubmit={handleSubmit}>
+          <label className="text-black-500 font-semibold">Name</label>
+          <input
+            type="text"
+            name="name"
+            required
+            className="input"
+            placeholder="John Doe"
+            value={form.name}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          <label className="text-black-500 font-semibold">Email</label>
+          <input
+            type="email"
+            name="email"
+            required
+            className="input"
+            placeholder="john@gmail.com"
+            value={form.email}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          <label className="text-black-500 font-semibold">Your Message</label>
+          <textarea
+            required
+            name="message"
+            className="textarea"
+            rows={4}
+            placeholder="Let me know how I can help you!"
+            onChange={handleChange}
+            value={form.message}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          <button type="submit" className="btn" onFocus={handleFocus} onBlur={handleBlur}>
+            {isLoading ? "Sending..." : "Send Message"}
+          </button>
         </form>
-
-
       </div>
 
-      <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'>
-        <Canvas camera={{ positon: [0, 0, 5], fov: 75, near: 0.1, far: 1000 }}>
-          <directionalLight intensity={2.5} position={[0, 0, 1]}></directionalLight>
-          <ambientLight intensity={0.5}></ambientLight>
-          <Suspense fallback={<Loader></Loader>}>
+      {/* Canvas */}
+      <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px] overflow-hidden">
+        <Canvas className="w-full h-full" camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 1000 }}>
+          <directionalLight intensity={2.5} position={[0, 0, 1]} />
+          <ambientLight intensity={0.5} />
+          <Suspense fallback={<Loader />}>
             <Fox
               currentAnimation={currentAnimation}
-              positon={[0.5, 0.35, 0]}
+              position={[0.5, 0.35, 0]}
               rotation={[12.6, -0.6, 0]}
               scale={[0.5, 0.5, 0.5]}
-            ></Fox>
+            />
           </Suspense>
         </Canvas>
       </div>
     </section>
+
   )
 }
 
